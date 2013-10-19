@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}eClinic{% endblock title %}
+
+{% block foundation_body %}
+    {% include "eclinic_app/top_nav.html" %}
+    <div class="row full">
+        <section class="large-9 columns">
+            <h2> Visits </h2>
+            <table>
+                <tr>
+                    <th> Patient Names</th>
+                    <th> Screened By</th>
+                    <th> Date</th>
+                    <th> Remarks</th>
+                    <th> Seen By Dr</th>
+                    <th> Test</th>
+                    <th> Last Patient Visit</th>
+                </tr>
+                {% for visit in all_visits %}
+                    <tr>
+                        <td>
+                            <a href="../patient-detail/{{ visit.patient.id }}"> {{ visit.patient.patient_number }}</a>
+                        </td>
+                        <td> {{ visit.screened_by.first_name }} {{ visit.screened_by.last_name }}</td>
+                        <td> {{ visit.date_visit }}</td>
+                        <td> {{ visit.remarks }}</td>
+                        <td> {{ visit.seen_by_dr.first_name }} {{ visit.seen_by_dr.last_name }}</td>
+                        <td> {{ visit.Ablie }} </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+
+            <hr/>
+
+        Screening Nurse: {{ visit.patient }} <br />
+        Patient Number: {{ patient.patient_number }}
+
+        </section>
+        <section class="large-3 columns">
+            <table>
+                <tr>
+                    <th colspan="2" class="title">
+                         {{ patient.get_full_name|title }}
+                    </th>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <img src="{% static "images/photos/ablie.gif" %}"  width="220" />
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="title">{{ patient.patient_number }} </th>
+                </tr>
+
+                <tr>
+                    <td class="text-right"> Gender</td>
+                    <th class="text-left">  {{ patient.get_gender }} </th>
+                </tr>
+
+                <tr>
+                    <td class="right"> Date of Birth</td>
+                    <th class="text-left">  {{ patient.date_of_birth }}  /
+                        {{ patient.get_patient_age }}</th>
+                </tr>
+                <tr>
+                    <td class="right"> Address</td>
+                    <th class="text-left">  {{ patient.address |capfirst }} </th>
+                </tr>
+
+                <tr>
+                    <td class="right"> Telephone</td>
+                    <th class="text-left">  {{ patient.telephone |capfirst }} </th>
+                </tr>
+                <tr>
+                    <td class="right"> District</td>
+                    <th class="text-left">  {{ patient.district |capfirst }} </th>
+                </tr>
+                <tr>
+                    <td class="right" class="right"> Region</td>
+                    <th class="text-left">  {{ patient.region |capfirst }} </th>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="subheader left"> Actions</span>
+                    </td>
+                    <td>
+                        <a href="../../patient/{{ patient.id }}"> Edit </a>/
+                        <a href="../../patient/{{ patient.id }}/delete"> Delete</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span class="subheader left"> Manage Visits</span>
+                    </td>
+                    <td>
+                        <a href="../../patient/{{ patient.id }}"> Add Visit </a>/
+                        <a href="../../patient/{{ patient.id }}/delete"> Edit Visit</a>
+                    </td>
+                </tr>
+            </table>
+
+
+        </section>
+
+    </div>
+{% endblock foundation_body %}

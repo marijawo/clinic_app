@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}eClinic{% endblock title %}
+
+{% block foundation_body %}
+    {% include "eclinic_app/top_nav.html" %}
+
+    <div class="row full columns">
+
+        <section class="large-6 columns">
+            <h2> Update Patietns Here </h2>
+
+            <form action="" method="post">
+                {{ form.non_field_errors }}
+                {% csrf_token %}
+
+                <div class="large-4">
+                    {{ form.as_table }}
+                </div>
+
+                <input type="submit" value="Add Patient">
+            </form>
+
+            <section class="large-6">
+                <h3> Second form place holder</h3>
+            </section>
+
+
+    </div>
+{% endblock foundation_body %}

@@ -1,0 +1,50 @@
+.large-3{
+    #background: #1e728c;
+}
+
+.large-9{
+    #background: #1e728c;
+}
+
+.row{
+    border:  solid thin #F00;
+}
+
+.form{
+    border: solid thin #F00;
+}
+
+table{
+    border:  solid thin  #FF0000;
+    margin: 10px;
+}
+
+th.title{
+    background: #aaaaaa;
+    text-align: left;
+    font-size: 1.1em;
+    color: #FFF;
+
+    font-weight: lighter;
+}
+
+td.title{
+    background: #777777;
+    color: #000;
+    text-align: left;
+    font-size: .9em;
+    font-weight: bolder;
+}
+
+.img-profile{
+    background: #000;
+    text-align: center;
+}
+
+td odd{
+    background: #1e728c;
+}
+
+td even{
+    background: #1e728c;
+}

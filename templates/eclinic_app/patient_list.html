@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %} Patients{% endblock title %}
+
+{% block foundation_body %}
+    {% include "eclinic_app/top_nav.html" %}
+
+    <div class="row full ">
+        <section class="large-10 columns">
+            <h2> List Patients </h2>
+            <table>
+                <tr>
+                    <th> Patient Number</th>
+                    <th> First Name</th>
+                    <th> Middle Name</th>
+                    <th> Last Name</th>
+                    <th> Gender</th>
+                    <th> Address</th>
+                    <th> Telephone</th>
+                    <th> Actions</th>
+                </tr>
+                {% for patient in all_patients %}
+                    <tr>
+                        <td><a href="../patient-detail/{{ patient.id }}"> {{ patient.patient_number|upper }}</a></td>
+                        <td> {{ patient.first_name }}</td>
+                        <td> {{ patient.middle_name|capfirst }}</td>
+                        <td> {{ patient.last_name|capfirst }}</td>
+                        <td> {{ patient.get_gender }}</td>
+                        <td> {{ patient.address|capfirst }}</td>
+                        <td> {{ patient.telephone }}</td>
+                        <td>
+
+                            <a href="../../patient/{{ patient.id }}"> Edit </a> //
+                            <a href="../../patient/{{ patient.id }}/delete"> Delete </a>
+
+
+                        </td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td> Total Patients: {{ patient.get_total_patients }}</td>
+                </tr>
+            </table>
+        </section>
+        <aside class="large-2 columns">
+            <h3 class="subheader"> Sidebar</h3>
+            <table>
+                <tr>
+                    <th> Total Patients</th>
+                    <td>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <th> Total Male</th>
+                    <td> {{ patient.get_total_male }} </td>
+                </tr>
+
+                <tr>
+                    <th> Total Female</th>
+                    <td> {{ patient.get_total_female }} </td>
+                </tr>
+
+
+                <tr>
+                <tr>
+                    <th> West Coast Region</th>
+                    <td> {{ region.name }}</td>
+                </tr>
+                <tr>
+                    <th> Lower River Region</th>
+                    <td> {{ region.name }}</td>
+                </tr>
+                <tr>
+                    <th> Banjul/KMC</th>
+                    <td> {{ region.name }}</td>
+                </tr>
+            </table>
+        </aside>
+    </div>
+{% endblock foundation_body %}
