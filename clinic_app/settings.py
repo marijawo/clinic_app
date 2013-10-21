@@ -74,6 +74,8 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 
     #need to specify your static url for the foundation front-end to work
+    'S:/xamadian/CodesMeister/DjangoProjects/clinic_app/static',
+
 )
 
 # List of finder classes that know how to find static files in
@@ -123,7 +125,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'eclinic_app',
+    'clinic_app',
 )
 
 # A sample logging configuration. The only tangible logging

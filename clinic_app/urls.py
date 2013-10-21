@@ -10,11 +10,9 @@ urlpatterns = patterns('',
 
     url(r'^patients/$', PatientListView.as_view(), name='patient-view'),
     url(r'^patient-detail/(?P<pk>\d+)/$', PatientDetailView.as_view(), name='patient-detail'),
-    #url(r'^patient/add/', CreatePatientViewForm.as_view(), name='create-patient'),
     url(r'^patient/add/', CreatePatientViewForm.as_view(), name='create-patient'),
-    #url(r'^patient/(?P<pk>\d+/$)', PatientUpdate.as_view(), name='patient-update'),
 
-    url(r'patient/(?P<pk>\d+)/$', PatientUpdate.as_view(), name='patient_update'),
+    url(r'visit/(?P<pk>\d+)/$', PatientUpdate.as_view(), name='patient_update'),
     url(r'patient/(?P<pk>\d+)/delete/$', PatientDelete.as_view(), name='patient_delete'),
 
     # Visit URLS

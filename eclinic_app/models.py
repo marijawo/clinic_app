@@ -21,8 +21,6 @@ class Patient(models.Model):
         ordering = ['patient_number']
 
     def get_patient_age(self):
-    # age = timezone.now() - self.date_of_birth
-    # return u's%' % age
 
         born_day = self.date_of_birth
         age = 2013 - born_day

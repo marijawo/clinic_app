@@ -14,19 +14,17 @@
                     <th> Date</th>
                     <th> Remarks</th>
                     <th> Seen By Dr</th>
-                    <th> Test</th>
-                    <th> Last Patient Visit</th>
+
                 </tr>
                 {% for visit in all_visits %}
                     <tr>
                         <td>
-                            <a href="../patient-detail/{{ visit.patient.id }}"> {{ visit.patient.patient_number }}</a>
+                            {{ visit.patient}}
                         </td>
-                        <td> {{ visit.screened_by.first_name }} {{ visit.screened_by.last_name }}</td>
+                        <td> {{ visit.screened_by }} </td>
                         <td> {{ visit.date_visit }}</td>
                         <td> {{ visit.remarks }}</td>
                         <td> {{ visit.seen_by_dr.first_name }} {{ visit.seen_by_dr.last_name }}</td>
-                        <td> {{ visit.Ablie }} </td>
                     </tr>
                 {% endfor %}
 
@@ -34,8 +32,7 @@
 
             <hr/>
 
-        Screening Nurse: {{ visit.patient }} <br />
-        Patient Number: {{ patient.patient_number }}
+
 
         </section>
         <section class="large-3 columns">
@@ -102,8 +99,6 @@
                     </td>
                 </tr>
             </table>
-
-
         </section>
 
     </div>
