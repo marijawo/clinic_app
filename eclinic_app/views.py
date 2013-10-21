@@ -1,12 +1,5 @@
 from django.views.generic import ListView, DeleteView, UpdateView, CreateView, DetailView, FormView
 from eclinic_app.models import *
-from django.shortcuts import get_object_or_404
-from django.utils import timezone
-
-# Class based views
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
-from django.views.generic.base import View
 
 from eclinic_app.forms import *
 
@@ -19,9 +12,6 @@ class PatientListView(ListView):
         context['all_patients'] = Patient.objects.all()
         context['all_visits'] = Visit.objects.all()
         return context
-
-#class CreatePatient(CreateView):
-#    model = Patient
 
 class CreatePatientViewForm(FormView):
     template_name = "eclinic_app/patient_add.html"
